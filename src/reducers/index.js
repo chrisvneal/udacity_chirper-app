@@ -4,7 +4,7 @@ import users from "./users";
 import tweets from "./tweets";
 
 export default combineReducers({
-  authedUsers,
+  authedUser,
   users,
   tweets,
 });
