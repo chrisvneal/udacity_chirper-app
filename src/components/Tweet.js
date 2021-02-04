@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatTweet } from "../utils/helpers";
+import { TiArrowBackOutline } from "react-icons/ti";
+import { TiHeartOutline } from "react-icons/ti/";
+import { TiHeartFullOutline } from "react-icons/ti";
 
 class Tweet extends Component {
   render() {
     const { tweet } = this.props;
-
     if (tweet === null) {
       return <p>This tweet doesn't exist</p>;
     }
+
+    const {
+      name,
+      avatar,
+      timestamp,
+      text,
+      hasLiked,
+      likes,
+      replies,
+      id,
+      parent,
+    } = tweet;
     // console.log(this.props);
-    return <div className="tweet"></div>;
+    return (
+      <div className="tweet">
+        <img src={avatar} alt={`Avatar of ${name}`} className="avatar" />
+      </div>
+    );
   }
 }
 
