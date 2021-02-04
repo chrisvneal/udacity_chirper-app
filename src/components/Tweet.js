@@ -29,40 +29,40 @@ class Tweet extends Component {
       hasLiked,
       likes,
       replies,
-      id,
       parent,
     } = tweet;
     // console.log(this.props);
     return (
       <div className="tweet">
         <img src={avatar} alt={`Avatar of ${name}`} className="avatar" />
-
         <div className="tweet-info">
-          <span>{name}</span>
-          <div>{formatDate(timestamp)}</div>
-          {parent && (
-            <button
-              className="replying-to"
-              onClick={(e) => this.toParent(e, parent.id)}>
-              Replying to @{parent.author}
-            </button>
-          )}
+          <div>
+            <span>{name}</span>
+            <div>{formatDate(timestamp)}</div>
 
-          <p>{text}</p>
-        </div>
-        {/* end of tweet info */}
-
-        <div className="tweet-icons">
-          <TiArrowBackOutline className="tweet-icon" />
-          <span>{replies !== 0 && replies}</span>
-
-          <button className="heart-button" onClick={this.handleLike}>
-            {hasLiked === true ? (
-              <TiHeartFullOutline color="#e0245e" className="tweet-icon" />
-            ) : (
-              <TiHeartOutline className="tweet-icon" />
+            {parent && (
+              <button
+                className="replying-to"
+                onClick={(e) => this.toParent(e, parent.id)}>
+                Replying to @{parent.author}
+              </button>
             )}
-          </button>
+
+            <p>{text}</p>
+          </div>
+          <div className="tweet-icons">
+            <TiArrowBackOutline className="tweet-icon" />
+            <span>{replies !== 0 && replies}</span>
+
+            <button className="heart-button" onClick={this.handleLike}>
+              {hasLiked === true ? (
+                <TiHeartFullOutline color="#e0245e" className="tweet-icon" />
+              ) : (
+                <TiHeartOutline className="tweet-icon" />
+              )}
+            </button>
+            <span>{likes !== 0 && likes}</span>
+          </div>
         </div>
       </div>
     );
