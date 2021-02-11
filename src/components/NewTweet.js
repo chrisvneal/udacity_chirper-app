@@ -27,7 +27,21 @@ class NewTweet extends Component {
     }));
   };
   render() {
-    return <div>New Tweet</div>;
+    const { text } = this.state;
+    return (
+      <div>
+        <h3 className="center">Compose new tweet</h3>
+        <form className="new-tweet" onSubmit={this.handleSubmit}>
+          <textarea
+            placeholder="What's happening?"
+            value={text}
+            onChange={this.handleChange}
+            className="textarea"
+            maxLength={280}
+          />
+        </form>
+      </div>
+    );
   }
 }
 
